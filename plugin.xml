@@ -50,6 +50,11 @@
         <source-file src="src/android/libs/arm64-v8a/libbdEASRAndroid.v1.9.14..so" target-dir="libs/arm64-v8a/"/>
         <source-file src="src/android/libs/arm64-v8a/libBDVoiceRecognitionClient_MFE_V1_s2.so" target-dir="libs/arm64-v8a/"/>
         <source-file src="src/android/libs/arm64-v8a/libbd_easr_s1_merge_normal_20151216.dat.so" target-dir="libs/arm64-v8a/"/>
+
+        <source-file src="src/android/libs/armeabi/libbdEASRAndroid.v1.9.14..so" target-dir="libs/armeabi-v7a/"/>
+        <source-file src="src/android/libs/armeabi/libBDVoiceRecognitionClient_MFE_V1_s2.so" target-dir="libs/armeabi-v7a/"/>
+        <source-file src="src/android/libs/armeabi/libbd_easr_s1_merge_normal_20151216.dat.so" target-dir="libs/armeabi-v7a/"/>
+
         <source-file src="src/android/assets/WakeUp.bin" target-dir="assets/"/>
 
 	</platform>
