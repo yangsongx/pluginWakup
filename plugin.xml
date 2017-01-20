@@ -1,16 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="szjy.advtech" version="0.1">
-  <name>pluginWakup</name>
-  <js-module name="pluginWakup" src="www/pluginWakup.js">
-    <clobbers target="cordova.plugins.pluginWakup"/>
-  </js-module>
-  <platform name="android">
-    <config-file parent="/*" target="res/xml/config.xml">
-      <feature name="pluginWakup">
-        <param name="android-package" value="szjy.advtech.pluginWakup"/>
-      </feature>
-    </config-file>
-    <config-file parent="/*" target="AndroidManifest.xml"/>
-    <source-file src="src/android/pluginWakup.java" target-dir="src/szjy/advtech/pluginWakup"/>
-  </platform>
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="cordova-plugin-buildinfo"
+	version="1.1.0">
+	<name>BuildInfo</name>
+	<description>Cordova/Phonegap Build Information Plugin. Get PackageName, Version, Debug and more...</description>
+	<license>MIT</license>
+	<keywords>debug,buildconfig,buildinfo,phonegap,cordova</keywords>
+	<author>Mikihiro Hayashi</author>
+
+	<js-module src="www/buildinfo.js" name="BuildInfo">
+		<clobbers target="BuildInfo" />
+	</js-module>
+
+	<engines>
+		<engine name="cordova" version=">=4.0.0" />
+	</engines>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="BuildInfo">
+				<param name="android-package" value="org.apache.cordova.buildinfo.BuildInfo" />
+			</feature>
+		</config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <config-file parent="application" target="AndroidManifest.xml">
+            <meta-data android:name="com.baidu.speech.APP_ID" android:value="9219041"/>
+            <meta-data android:name="com.baidu.speech.API_KEY" android:value="dlBE63tufSdp2YtWQP1pqYnj"/>
+            <meta-data android:name="com.baidu.speech.SECRET_KEY" android:value="04a81ca1a184e5819ee29ba6a58a9343"/>
+            <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
+        </config-file>
+
+		<source-file src="src/android/BuildInfo.java" target-dir="src/org/apache/cordova/buildinfo" />
+
+        <source-file src="src/android/libs/VoiceRecognition-2.1.20.jar" target-dir="libs/"/>
+        <source-file src="src/android/libs/armeabi/libbdEASRAndroid.v1.9.14..so" target-dir="libs/armeabi/"/>
+        <source-file src="src/android/libs/armeabi/libBDVoiceRecognitionClient_MFE_V1_s2.so" target-dir="libs/armeabi/"/>
+        <source-file src="src/android/libs/armeabi/libbd_easr_s1_merge_normal_20151216.dat.so" target-dir="libs/armeabi/"/>
+
+        <source-file src="src/android/libs/arm64-v8a/libbdEASRAndroid.v1.9.14..so" target-dir="libs/arm64-v8a/"/>
+        <source-file src="src/android/libs/arm64-v8a/libBDVoiceRecognitionClient_MFE_V1_s2.so" target-dir="libs/arm64-v8a/"/>
+        <source-file src="src/android/libs/arm64-v8a/libbd_easr_s1_merge_normal_20151216.dat.so" target-dir="libs/arm64-v8a/"/>
+        <source-file src="src/android/assets/WakeUp.bin" target-dir="assets/"/>
+
+	</platform>
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="BuildInfo">
+				<param name="ios-package" value="CDVBuildInfo"/>
+			</feature>
+		</config-file>
+		<header-file src="src/ios/CDVBuildInfo.h" />
+		<source-file src="src/ios/CDVBuildInfo.m" />
+	</platform>
 </plugin>
