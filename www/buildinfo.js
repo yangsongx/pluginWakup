@@ -30,11 +30,11 @@ module.exports = {
 	basePackageName: '',
 	displayName: '',
 	name: '',
-	version: function(arg, successCb, errorCb){
+	startWakeup: function(arg, successCb, errorCb){
         console.log("WaWa, you said" + arg);
         exec(successCb, errorCb,
                 "BuildInfo",
-                "version",
+                "startWakeup",
                 [arg]);
     },
 	stopWakeup: function(arg, successCb, errorCb){

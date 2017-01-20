@@ -83,8 +83,8 @@ public class BuildInfo extends CordovaPlugin {
 
 			init(buildConfigClassName, callbackContext);
 			return true;
-		} else if ("version".equals(action)) {
-            android.util.Log.e("a22301", "PRETTY COOL, Android");
+		} else if ("startWakeup".equals(action)) {
+            android.util.Log.e(TAG, "PRETTY COOL, Android");
             String msg = args.getString(0);
             this.waitWakupCmd(msg, callbackContext);
             return true; /* FIXME - how to indicate this value? */
@@ -281,8 +281,11 @@ public class BuildInfo extends CordovaPlugin {
         m_cb = callbackContext;
 
         android.util.Log.e(TAG, "try use wakup event...");
-        mWpEventManager = EventManagerFactory.create(cordova.getActivity(), "wp");
-        mWpEventManager.registerListener(new EventListener() {
+
+        if(mWpEventManager == null) {
+            mWpEventManager = EventManagerFactory.create(cordova.getActivity(), "wp");
+
+            mWpEventManager.registerListener(new EventListener() {
                 @Override
                 public void onEvent(String name, String params, byte[] data, int offset, int length){
                     String val;
@@ -305,6 +308,9 @@ public class BuildInfo extends CordovaPlugin {
                     }
                 }
              });
+        } else {
+            android.util.Log.i(TAG, "don't need call event mgr twice.");
+        }
 
         HashMap params = new HashMap();
         params.put("kws-file", "assets:///WakeUp.bin");
