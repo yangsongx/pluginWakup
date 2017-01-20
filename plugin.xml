@@ -5,10 +5,10 @@
 	id="cordova-plugin-buildinfo"
 	version="1.1.0">
 	<name>BuildInfo</name>
-	<description>Cordova/Phonegap Build Information Plugin. Get PackageName, Version, Debug and more...</description>
+	<description>Wakup with keyword of voice.</description>
 	<license>MIT</license>
 	<keywords>debug,buildconfig,buildinfo,phonegap,cordova</keywords>
-	<author>Mikihiro Hayashi</author>
+	<author>SZJY.AdvTech</author>
 
 	<js-module src="www/buildinfo.js" name="BuildInfo">
 		<clobbers target="BuildInfo" />
@@ -21,7 +21,7 @@
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="BuildInfo">
-				<param name="android-package" value="org.apache.cordova.buildinfo.BuildInfo" />
+				<param name="android-package" value="szjy.advtech.BuildInfo" />
 			</feature>
 		</config-file>
 
@@ -40,7 +40,7 @@
             <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
         </config-file>
 
-		<source-file src="src/android/BuildInfo.java" target-dir="src/org/apache/cordova/buildinfo" />
+		<source-file src="src/android/BuildInfo.java" target-dir="src/szjy/advtech/" />
 
         <source-file src="src/android/libs/VoiceRecognition-2.1.20.jar" target-dir="libs/"/>
         <source-file src="src/android/libs/armeabi/libbdEASRAndroid.v1.9.14..so" target-dir="libs/armeabi/"/>

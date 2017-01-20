@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package org.apache.cordova.buildinfo;
+package szjy.advtech;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -280,7 +280,7 @@ public class BuildInfo extends CordovaPlugin {
     private void waitWakupCmd(String message, CallbackContext callbackContext) {
         m_cb = callbackContext;
 
-        android.util.Log.e(TAG, "try use wakup event...");
+        android.util.Log.e(TAG, "the wakup event...");
 
         if(mWpEventManager == null) {
             mWpEventManager = EventManagerFactory.create(cordova.getActivity(), "wp");
